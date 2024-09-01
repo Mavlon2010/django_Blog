@@ -1,0 +1,23 @@
+<!--Navbar-->
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">BBC news</a>
+
+        <!--FORM-->
+        <form class="d-flex w-75 input-group" role="search" action="{% url 'blog-search' %}" method="POST">
+            {% csrf_token %}
+
+            <!--SEARCH INPUT-->
+            <label class="input-group-text" id="basic-addon1" for="search"><i class="bi bi-search"></i></label>
+            <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+            <!--SEARCH BUTTON-->
+            <button class="btn btn-outline-success" style="width: 200px" type="submit">Search</button>
+        </form>
+        {% if user.is_authenticated %}
+        <!--CREATE BUTTON-->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="bi bi-clipboard2-plus-fill"></i> yaratish
+        </button>
+        {% endif %}
+    </div>
+</nav>
